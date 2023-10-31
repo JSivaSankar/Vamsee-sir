@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Count</title>
+    <style>
+
+        div {
+            margin-left: 450px;
+            margin-top: 100px;
+            border: 1px solid whitesmoke;
+            padding: 40px;
+            box-sizing: border-box;
+            width: 500px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow:3px 5px 3px 5px rgb(175, 167, 167) ;
+        }
+        #dec{
+            background-color: red;
+             padding: 10px;
+             width: 40px;
+             border-radius: 5px;
+            
+        }
+        #reset{
+            background-color: gray;
+             padding: 10px;
+              width: 100px;
+              border-radius: 5px;
+        }
+        #inc{
+            background-color: green;
+             padding: 10px;
+             width: 40px;
+             border-radius: 5px;
+            
+        }
+        #inc:active{
+            padding: 13px;
+             width: 45px;
+        }
+        #dec:active{
+            padding: 13px;
+             width: 45px;
+        }
+        #reset:active{
+            padding: 13px;
+             width: 105px;
+        }
+        h1{
+            font-size: 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Counter</h1>
+        <h1 id="num">0</h1>
+        <section>
+            <button onclick="minus()" id="dec">-</button>
+            <button onclick="resEtfun()" id="reset">Reset</button>
+            <button onclick="plus()" id="inc">+</button>
+        </section>
+    </div>
+    <script>
+        
+        var number = document.getElementById('num');
+        var value = number.innerHTML;
+        function plus(){
+            value++;
+            document.getElementById('num').innerHTML=value;
+            if(value>0){
+            document.getElementById('num').style.color='green';
+        }
+        if(value==0){
+            document.getElementById('num').style.color='black';
+        }
+        }
+        function minus(){
+            value--;
+            document.getElementById('num').innerHTML=value;
+            if(value<0){
+            document.getElementById('num').style.color='red';
+        }
+        if(value==0){
+            document.getElementById('num').style.color='black';
+        }
+        }
+        function resEtfun(){
+            value=0;
+            document.getElementById('num').innerHTML=value;
+            document.getElementById('num').style.color='black';
+        }
+    </script>
+</body>
+
+</html>

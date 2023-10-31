@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculation</title>
+    <style>
+        div{
+            border: 1px solid white;
+            text-align: center;
+            width: 500px;
+            margin-left: 400px;
+            margin-top: 100px;
+            padding-top: 10px;
+            padding-bottom: 30px;
+            padding-left: 50px;
+            padding-right: 50px;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            box-shadow: 3px 3px 19px 10px rgb(163, 161, 161);
+            border-radius: 15px;
+        }
+        #date_calc{
+            width: 350px;
+            padding: 7px;
+            margin-left: 60px;
+            border: 1px solid rgb(185, 176, 176);
+            border-radius: 5px;
+        }
+        #calc_btn{
+            width: 200px;
+            padding: 7px;
+            margin-left: 130px;
+            border: 1px solid rgb(185, 176, 176);
+            margin-top: 10px;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+        }
+        h1{
+            font-family:  'Arial Narrow', Arial;
+        }
+        #res{
+            font-family:  'Arial Narrow', Arial;
+            font-weight: bold;
+            font-size: 20px;
+                }
+                #ent_db{
+                    font-weight: bold;
+                    font-size:large;
+                }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 class="age_p">Age Calculator</h1>
+        <p id="ent_db">Enter your date of birth</p>
+        <input type="date" id="date_calc" />
+        <input type="button" onclick="calculate()" value="Calculate Age" id="calc_btn" />
+        <p id="res"></p>
+    </div>
+    <script>
+        function calculate() {
+            var dateCalc = document.getElementById('date_calc').value;
+            let userYear = dateCalc.substring(0, 4);
+            let userMonth = dateCalc.substring(5, 7);
+            let upDate = new Date();
+            let pYear = upDate.getFullYear() - userYear;
+            let pMonth = upDate.getMonth();
+            pMonth=parseInt(pMonth)+1;
+            if (pMonth < userMonth) {   
+                pMonth=(upDate.getMonth()-userMonth)+12;
+                pYear = upDate.getFullYear() - userYear;
+                document.getElementById('res').innerHTML = `Your are ${pYear-1} 
+            years and ${pMonth} months old.`;  
+            }
+            if (pMonth > userMonth) {
+                pMonth = (upDate.getMonth()+1) - userMonth;
+                console.log(pMonth);
+                document.getElementById('res').innerHTML = `You are ${pYear} 
+            years and ${pMonth} months old.`;
+            }
+            if (userMonth == pMonth) {
+                pYear = upDate.getFullYear() - userYear;
+                document.getElementById('res').innerHTML = `You are  ${pYear} 
+            years old.`;
+            }
+            if (userYear == pYear) {
+                pMonth = (upDate.getMonth()+1) - userMonth;
+                document.getElementById('res').innerHTML = `Your are  ${pMonth} months old.`
+
+            }
+    }
+
+    </script>
+</body>
+
+</html>
